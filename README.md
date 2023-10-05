@@ -36,5 +36,8 @@ python -m venv .venv
 Add-Content .git/info/exclude ".venv/", ".vscode/"
 .venv/Scripts/Activate.ps1
 python -m pip install -U pip
-python -m pip install -e .  # falis
+python -m pip install -e .
+python
 ```
+
+Then try the example from the _Usage_ above. It doesn't work.
