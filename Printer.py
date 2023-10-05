@@ -5,6 +5,7 @@ Mostly used for testing.
 
 from pythonfrp.Proxy import Proxy
 
+
 class Printer(Proxy):
     def __init__(self, name, args):
         Proxy.__init__(self, name, printupdate, {})
@@ -17,5 +18,5 @@ def printupdate(proxy):
         print(k + ": " + str(v.now()))
 
 
-def printer(name = "printing object", **kwargs):
+def printer(name="printing object", **kwargs):
     return Printer(name, kwargs)

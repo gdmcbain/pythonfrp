@@ -13,18 +13,22 @@ class World(Proxy.Proxy):
     def __init__(self, update=updateWorld, name="world"):
         Proxy.Proxy.__init__(self, name, update, {})
         # Create a world labeled 'world' with an updater that calls each signal's custom update
-        
 
-world = World() # Instance of World class
+
+world = World()  # Instance of World class
 world._updaters = []
 
 
-def addSignal(name, default, type, update):  # Add a signal to a given object, paired with a specified updater.
+def addSignal(
+    name, default, type, update
+):  # Add a signal to a given object, paired with a specified updater.
     world.__setattr__(name, default)
     world._types[name] = type
     world._updaters.append(update)
 
 
-def resetWorld(continueFn=lambda: None, initFn=lambda: None):  # Makes all DirectGUI stuff invisible
+def resetWorld(
+    continueFn=lambda: None, initFn=lambda: None
+):  # Makes all DirectGUI stuff invisible
     Globals.resetFlag = continueFn
     Globals.initFn = initFn
